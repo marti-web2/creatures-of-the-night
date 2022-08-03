@@ -30,7 +30,7 @@ export class Sitting extends State {
 
   handleInput(input) {
     if (input.includes('ArrowLeft') || input.includes('ArrowRight')) {
-      this.game.player.setState(states.RUNNING)
+      this.game.player.setState(states.RUNNING,1)
     }
   }
 }
@@ -48,9 +48,9 @@ export class Running extends State {
 
   handleInput(input) {
     if (input.includes('ArrowUp')) {
-      this.game.player.setState(states.JUMPING)
+      this.game.player.setState(states.JUMPING,1)
     } else if (input.includes('ArrowDown')) {
-      this.game.player.setState(states.SITTING)
+      this.game.player.setState(states.SITTING,0)
     }
   }
 }
@@ -69,7 +69,7 @@ export class Jumping extends State {
 
   handleInput(input) {
     if (this.game.player.vy>this.game.player.weight) {
-      this.game.player.setState(states.FALLING)
+      this.game.player.setState(states.FALLING,1)
     }
   }
 }
@@ -87,7 +87,7 @@ export class Falling extends State {
 
   handleInput(input) {
     if (this.game.player.onGround()) {
-      this.game.player.setState(states.RUNNING)
+      this.game.player.setState(states.RUNNING,1)
     }
   }
 }

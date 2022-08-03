@@ -1,3 +1,4 @@
+/* handle logic for each state separately */
 class Layer {
   constructor(game, width, height, speedModifier, image) {
     this.game = game
@@ -10,16 +11,17 @@ class Layer {
   }
 
   update() {
-    if (this.x < -this.width) { }
-    else { }
+    if (this.x < -this.width) { this.x = 0 }
+    else { this.x -= this.game.speed * this.speedModifier }
   }
 
   draw(ctx) {
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
+    ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height)
   }
 }
 
-export class Background {
+export default class Background {
   constructor(game) {
     this.game = game
     this.width = 1667
@@ -37,5 +39,17 @@ export class Background {
     this.backgroundLayers = [
       this.layer1, this.layer2, this.layer3, this.layer4, this.layer5
     ]
+  }
+
+  update() {
+    this.backgroundLayers.forEach((layer) => {
+      layer.update()
+    })
+  }
+
+  draw(ctx) {
+    this.backgroundLayers.forEach((layer) => {
+      layer.draw(ctx)
+    })
   }
 }

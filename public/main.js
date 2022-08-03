@@ -1,6 +1,6 @@
 import Player from './player.js'
 import InputHandler from './input.js'
-import { Background } from './background.js'
+import Background from './background.js'
 import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from './enemies.js'
 import UI from './UI.js'
 
@@ -18,9 +18,9 @@ window.addEventListener('load', _ => {
     constructor(width, height) {
       this.width = width
       this.height = height
-      this.groundMargin = 50
+      this.groundMargin = 80
       this.speed = 0
-      this.maxSpeed = 6
+      this.maxSpeed = 4
       this.background = new Background(this)
       this.player = new Player(this)
       this.input = new InputHandler(this)
@@ -45,6 +45,7 @@ window.addEventListener('load', _ => {
     update(deltaTime) {
 
       if (this.time > this.maxTime) { }
+      this.background.update()
       this.player.update(this.input.keys, deltaTime)
 
       // handle enemies
@@ -67,6 +68,7 @@ window.addEventListener('load', _ => {
 
     draw(ctx) {
       if (this.debug) { }
+      this.background.draw(ctx)
       this.player.draw(ctx)
     }
 
