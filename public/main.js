@@ -30,7 +30,7 @@ window.addEventListener('load', _ => {
       this.floatingMessages = []
       this.enemyTimer = 0
       this.enemyInterval = 1000
-      this.debug = false
+      this.debug = true
       this.score = 0
       this.winningScore = 40
       this.fontColor = 'black'
@@ -45,7 +45,7 @@ window.addEventListener('load', _ => {
     update(deltaTime) {
 
       if (this.time > this.maxTime) { }
-      // this.player.update(this.input.keys)
+      this.player.update(this.input.keys)
 
       // handle enemies
 
@@ -67,7 +67,7 @@ window.addEventListener('load', _ => {
 
     draw(ctx) {
       if (this.debug) { }
-      // this.player.draw(ctx)
+      this.player.draw(ctx)
     }
 
     addEnemy() {
@@ -82,12 +82,12 @@ window.addEventListener('load', _ => {
   function animate(timestamp) {
     const deltaTime = timestamp - lastTime
     lastTime = timestamp
-    // ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-    // game.update()
-    // game.draw(ctx)
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+    game.update()
+    game.draw(ctx)
 
-    // requestAnimationFrame(animate)
+    requestAnimationFrame(animate)
   }
 
-  // animate(0)
+  animate(0)
 })

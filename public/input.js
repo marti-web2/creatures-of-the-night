@@ -1,3 +1,5 @@
+/* Capture and keep track of user input */
+
 export default class InputHandler {
   constructor(game) {
     this.game = game
