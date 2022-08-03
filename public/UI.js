@@ -8,9 +8,11 @@ export default class UI {
 
   draw(ctx) {
     ctx.save()
-
+    ctx.font=this.fontSize+ 'px' + this.fontFamily
+    ctx.textAlign = 'left'
+    ctx.fillStyle=this.game.fontColor
     // score
-
+    ctx.fillText('Score: ' + this.game.score, 20, 50)
 
     // timer
 

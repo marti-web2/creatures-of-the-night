@@ -25,6 +25,7 @@ class Enemy {
   }
 
   draw(ctx) {
+    if (this.game.debug) { ctx.strokeRect(this.x, this.y, this.width, this.height) }
     ctx.drawImage(
       this.image, this.frameX * this.width, 0, this.width, this.height, this.x, this.y, this.width, this.height
     )
@@ -96,8 +97,8 @@ export class ClimbingEnemy extends Enemy {
   draw(ctx) {
     super.draw(ctx)
     ctx.beginPath()
-    ctx.moveTo(this.x + this.width/2, 0)
-    ctx.lineTo(this.x + this.width/2, this.y + 50)
+    ctx.moveTo(this.x + this.width / 2, 0)
+    ctx.lineTo(this.x + this.width / 2, this.y + 50)
     ctx.stroke()
   }
 }

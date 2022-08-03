@@ -28,6 +28,7 @@ export default class Player {
   }
 
   update(input, deltaTime) {
+    this.checkCollision()
     this.currentState.handleInput(input)
     // horizontal movement
     this.x += this.speed
@@ -58,6 +59,7 @@ export default class Player {
   }
 
   draw(ctx) {
+    if (this.game.debug) { ctx.strokeRect(this.x, this.y, this.width, this.height) }
     ctx.drawImage(
       this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height,
       this.x, this.y, this.width, this.height
@@ -80,6 +82,10 @@ export default class Player {
         enemy.x + enemy.width > this.x &&
         enemy.y < this.y + this.height &&
         enemy.y + enemy.height > this.y) {
+
+        // collision detected
+        enemy.markedForDeletion = true
+        this.game.score++
 
         if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
 
