@@ -4,7 +4,7 @@
   "description": "",
   "main": "pretter.config.js",
   "scripts": {
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write --no-semi ."
   },
   "repository": {
     "type": "git",
