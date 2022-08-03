@@ -1,0 +1,23 @@
+{
+  "name": "endless-runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pretter.config.js",
+  "scripts": {
+    "prettier": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marti-web2/endless-runner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marti-web2/endless-runner/issues"
+  },
+  "homepage": "https://github.com/marti-web2/endless-runner#readme",
+  "dependencies": {
+    "prettier": "^2.7.1"
+  }
+}
