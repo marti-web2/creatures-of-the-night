@@ -18,7 +18,7 @@ window.addEventListener('load', _ => {
     constructor(width, height) {
       this.width = width
       this.height = height
-      this.groundMargin = 40
+      this.groundMargin = 50
       this.speed = 0
       this.maxSpeed = 6
       this.background = new Background(this)
@@ -45,7 +45,7 @@ window.addEventListener('load', _ => {
     update(deltaTime) {
 
       if (this.time > this.maxTime) { }
-      this.player.update(this.input.keys)
+      this.player.update(this.input.keys, deltaTime)
 
       // handle enemies
 
@@ -76,7 +76,6 @@ window.addEventListener('load', _ => {
   }
 
   const game = new Game(CANVAS_WIDTH, CANVAS_HEIGHT)
-
   let lastTime = 0
 
   function animate(timestamp) {

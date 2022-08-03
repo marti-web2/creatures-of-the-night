@@ -12,7 +12,7 @@ const states = {
 
 class State {
   constructor(state, game) {
-    this.state = state
+    this.state = state  // debug
     this.game = game
   }
 }
@@ -30,7 +30,7 @@ export class Sitting extends State {
 
   handleInput(input) {
     if (input.includes('ArrowLeft') || input.includes('ArrowRight')) {
-
+      this.game.player.setState(states.RUNNING)
     }
   }
 }
@@ -42,15 +42,15 @@ export class Running extends State {
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 8
+    this.game.player.maxFrame = 6
     this.game.player.frameY = 3
   }
 
   handleInput(input) {
     if (input.includes('ArrowUp')) {
-
+      this.game.player.setState(states.JUMPING)
     } else if (input.includes('ArrowDown')) {
-
+      this.game.player.setState(states.SITTING)
     }
   }
 }
@@ -61,14 +61,15 @@ export class Jumping extends State {
   }
 
   enter() {
+    if (this.game.player.onGround()) { this.game.player.vy -= 16 }
     this.game.player.frameX = 0
     this.game.player.maxFrame = 6
     this.game.player.frameY = 1
   }
 
   handleInput(input) {
-    if (input.includes('ArrowDown')) {
-
+    if (this.game.player.vy>this.game.player.weight) {
+      this.game.player.setState(states.FALLING)
     }
   }
 }
@@ -86,7 +87,7 @@ export class Falling extends State {
 
   handleInput(input) {
     if (this.game.player.onGround()) {
-
+      this.game.player.setState(states.RUNNING)
     }
   }
 }
@@ -135,6 +136,6 @@ export class Hit extends State {
   }
 
   handleInput(input) {
-    
+
   }
 }

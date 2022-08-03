@@ -14,8 +14,8 @@ export default class Player {
     this.image = player
     this.frameX = 0
     this.frameY = 0
-    this.maxFrame = 5
-    this.fps = 200
+    this.maxFrame
+    this.fps = 20
     this.frameInterval = 1000 / this.fps
     this.frameTimer = 0
     this.speed = 0
@@ -28,6 +28,7 @@ export default class Player {
   }
 
   update(input, deltaTime) {
+    this.currentState.handleInput(input)
     // horizontal movement
     this.x += this.speed
     if (input.includes('ArrowRight')) { this.speed = this.maxSpeed }
@@ -37,7 +38,6 @@ export default class Player {
     if (this.x > this.game.width - this.width) { this.x = this.game.width - this.width }
 
     // vertical movement
-    if (input.includes('ArrowUp') && this.onGround()) { this.vy -= 16 }
     this.y += this.vy
     if (!this.onGround()) { this.vy += this.weight }
     else { this.vy = 0 }
@@ -47,11 +47,13 @@ export default class Player {
 
     }
 
-
     // sprite animation
     if (this.frameTimer > this.frameInterval) {
-      if (this.frameX < this.maxFrame) { }
-      else { }
+      this.frameTimer = 0
+      if (this.frameX < this.maxFrame) { this.frameX++ }
+      else { this.frameX = 0 }
+    } else {
+      this.frameTimer += deltaTime
     }
   }
 
@@ -63,12 +65,12 @@ export default class Player {
   }
 
   onGround() {
-    return this.y >= this.game.height - this.height
+    return this.y >= this.game.height - this.height - this.game.groundMargin
   }
 
   setState(state) {
-    // this.currentState = this.states[state]
-    // this.currentState.enter()
+    this.currentState = this.states[state]
+    this.currentState.enter()
   }
 
   checkCollision() {
