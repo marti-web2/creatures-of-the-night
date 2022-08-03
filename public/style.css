@@ -1,0 +1,30 @@
+*,
+body::before,
+body::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica', cursive;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#canvas1 {
+  border: 0.5rem solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Creepster', cursive;
+}
+
+#player,
+#fire,
+#collisionAnimation,
+#lives,
+[id^="layer"],
+[id^="enemy"] {
+  display: none;
+}
