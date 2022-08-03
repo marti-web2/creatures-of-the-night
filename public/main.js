@@ -51,10 +51,15 @@ window.addEventListener('load', _ => {
       // handle enemies
 
       if (this.enemyTimer > this.enemyInterval) {
-
+        this.addEnemy()
+        this.enemyTimer = 0
       } else {
-
+        this.enemyTimer += deltaTime
       }
+      this.enemies.forEach((enemy) => {
+        enemy.update(deltaTime)
+        if (enemy.markedForDeletion) { this.enemies.splice(this.enemies.indexOf(enemy), 1) }
+      })
 
       // handle messages
 
@@ -70,10 +75,16 @@ window.addEventListener('load', _ => {
       if (this.debug) { }
       this.background.draw(ctx)
       this.player.draw(ctx)
+      this.enemies.forEach((enemy) => {
+        enemy.draw(ctx)
+      })
     }
 
     addEnemy() {
-
+      if (this.speed > 0 && Math.random() < 0.5) { this.enemies.push(new GroundEnemy(this)) }
+      else if(this.speed>0){this.enemies.push(new ClimbingEnemy(this))}
+      this.enemies.push(new FlyingEnemy(this))
+      console.log(this.enemies)
     }
   }
 
