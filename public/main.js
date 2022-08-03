@@ -28,10 +28,12 @@ window.addEventListener('load', _ => {
       this.enemies = []
       this.particles = []
       this.maxParticles = 128
+      this.collisions = []
+      this.splashParticles = 30
       this.floatingMessages = []
       this.enemyTimer = 0
       this.enemyInterval = 1000
-      this.debug = true
+      this.debug = false
       this.score = 0
       this.winningScore = 40
       this.fontColor = 'black'
@@ -44,8 +46,8 @@ window.addEventListener('load', _ => {
     }
 
     update(deltaTime) {
-
-      if (this.time > this.maxTime) { }
+      this.time += deltaTime
+      if (this.time > this.maxTime) { this.gameOver = true }
       this.background.update()
       this.player.update(this.input.keys, deltaTime)
 
@@ -72,7 +74,10 @@ window.addEventListener('load', _ => {
       if (this.particles.length > this.maxParticles) { this.particles.length = this.maxParticles }
 
       // handle collision sprites
-
+      this.collisions.forEach((collision, i) => {
+        collision.update(deltaTime)
+        if (collision.markedForDeletion) { this.collisions.splice(i, 1) }
+      })
     }
 
     draw(ctx) {
@@ -84,6 +89,9 @@ window.addEventListener('load', _ => {
       })
       this.particles.forEach((particle) => {
         particle.draw(ctx)
+      })
+      this.collisions.forEach((collision) => {
+        collision.draw(ctx)
       })
       this.UI.draw(ctx)
     }
@@ -105,7 +113,7 @@ window.addEventListener('load', _ => {
     game.update()
     game.draw(ctx)
 
-    requestAnimationFrame(animate)
+    if (!game.gameOver) { requestAnimationFrame(animate) }
   }
 
   animate(0)

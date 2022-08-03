@@ -30,11 +30,14 @@ export default class Player {
   update(input, deltaTime) {
     this.checkCollision()
     this.currentState.handleInput(input)
+
     // horizontal movement
     this.x += this.speed
-    if (input.includes('ArrowRight')) { this.speed = this.maxSpeed }
-    else if (input.includes('ArrowLeft')) { this.speed = -this.maxSpeed }
+    if (input.includes('ArrowRight') && this.currentState !== this.states[6]) { this.speed = this.maxSpeed }
+    else if (input.includes('ArrowLeft') && this.currentState !== this.states[6]) { this.speed = -this.maxSpeed }
     else { this.speed = 0 }
+
+    // horizontal boundaries
     if (this.x < 0) { this.x = 0 }
     if (this.x > this.game.width - this.width) { this.x = this.game.width - this.width }
 
@@ -45,7 +48,7 @@ export default class Player {
 
     // vertical boundaries
     if (this.y > this.game.height - this.height - this.game.groundMargin) {
-
+      this.y = this.game.height - this.height - this.game.groundMargin
     }
 
     // sprite animation
@@ -85,12 +88,12 @@ export default class Player {
 
         // collision detected
         enemy.markedForDeletion = true
-        this.game.score++
-
-        if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
-
-        } else {
-
+        this.game.collision.push(
+          new CollisionAnimation(this.game, enemy.x + enemy.width * 0.5, enemy.y + enemy.height * 0.5)
+        )
+        if (this.currentState === this.states[4] || this.currentState === this.states[5]) { this.game.score++ }
+        else {
+          this.setState(6, 0)
           if (this.game.lives <= 0) { }
         }
       }
