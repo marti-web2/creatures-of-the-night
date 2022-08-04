@@ -128,7 +128,7 @@ export default class Player {
       ) {
         // collision detected
         enemy.markedForDeletion = true
-        this.game.collision.push(
+        this.game.collisions.push(
           new CollisionAnimation(
             this.game,
             enemy.x + enemy.width * 0.5,

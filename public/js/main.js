@@ -78,18 +78,10 @@ window.addEventListener("load", () => {
       this.collisions.forEach((collision, i) => {
         collision.update(deltaTime)
       })
-      this.enemies = this.enemies.filter((enemy) => {
-        !enemy.markedForDeletion
-      })
-      this.particles = this.particles.filter((particle) => {
-        !particle.markedForDeletion
-      })
-      this.collisions = this.collisions.filter((collision) => {
-        !collision.markedForDeletion
-      })
-      this.floatingMessages = this.floatingMessages.filter((msg) => {
-        !msg.markedForDeletion
-      })
+      this.enemies = this.enemies.filter((enemy) => !enemy.markedForDeletion)
+      this.particles = this.particles.filter((particle) => !particle.markedForDeletion)
+      this.collisions = this.collisions.filter((collision) => !collision.markedForDeletion)
+      this.floatingMessages = this.floatingMessages.filter((msg) => !msg.markedForDeletion)
     }
 
     draw(ctx) {
