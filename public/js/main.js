@@ -4,15 +4,12 @@ import Background from "./background.js"
 import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies.js"
 import UI from "./UI.js"
 
-window.addEventListener("load", (_) => {
-  /** @type { HTMLCanvasElement }  **/
-
+window.addEventListener("load", () => {
   const loading = document.getElementById("loading")
   loading.style.display = "none"
-  const canvas = document.getElementById("canvas1")
-  const ctx = canvas.getContext("2d")
-  const CANVAS_WIDTH = (canvas.width = window.innerWidth)
-  const CANVAS_HEIGHT = (canvas.height = window.innerHeight)
+  const ctx = canvas1.getContext("2d")
+  const CANVAS_WIDTH = (canvas1.width = 1667)
+  const CANVAS_HEIGHT = (canvas1.height = 500)
 
   class Game {
     constructor(width, height) {
@@ -122,6 +119,7 @@ window.addEventListener("load", (_) => {
         this.enemies.push(new ClimbingEnemy(this))
       }
       this.enemies.push(new FlyingEnemy(this))
+      console.log(this.enemies)
     }
   }
 
@@ -132,7 +130,7 @@ window.addEventListener("load", (_) => {
     const deltaTime = timestamp - lastTime
     lastTime = timestamp
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-    game.update()
+    game.update(deltaTime)
     game.draw(ctx)
 
     if (!game.gameOver) {
