@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
       this.maxParticles = 128
       this.splashParticles = 30
       this.maxTime = 5000
-      this.winningScore = 30
+      this.winningScore = 3
       this.enemyInterval = 1000
       this.fontColor = "black"
       this.debug = false
@@ -98,10 +98,10 @@ window.addEventListener("load", () => {
 
     start() {
       this.reset()
-      animate(0)
+      requestAnimationFrame(animate)
     }
 
-    // holds properties that will change during gameplay and will need to be reset when starting a new game
+    /* holds properties that will change during gameplay and will need to be reset when starting a new game */
     reset() {
       this.speed = 0
       this.enemies = []
@@ -123,21 +123,21 @@ window.addEventListener("load", () => {
   }
 
   let game = new Game(CANVAS_WIDTH, CANVAS_HEIGHT)
-  let lastTime
+  let lastTime = 0
 
-  const animate = (timestamp) => {
+  function animate(timestamp) {
+    // Update lastTime to catch up with the current timestamp
     if (!lastTime) { lastTime = timestamp }
+
     const deltaTime = timestamp - lastTime
     lastTime = timestamp
+    console.log(timestamp, deltaTime)
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     game.update(deltaTime)
     game.draw(ctx)
 
-    if (!game.gameOver) {
-      requestAnimationFrame(animate)
-    } else {
-      lastTime = null
-    }
+    if (!game.gameOver) { requestAnimationFrame(animate) }
+    else { lastTime = 0 }
   }
 
   game.start()

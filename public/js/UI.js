@@ -44,6 +44,11 @@ export default class UI {
           this.game.width * 0.5,
           this.game.height * 0.5 + 20
         )
+        ctx.fillText(
+          "\( Press ENTER to restart game \)",
+          this.game.width * 0.5,
+          this.game.height * 0.5 + 40
+        )
       } else {
         ctx.fillText(
           "Love at first fright?",
