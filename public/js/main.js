@@ -18,12 +18,11 @@ window.addEventListener("load", () => {
       this.maxSpeed = 4
       this.maxParticles = 128
       this.splashParticles = 30
-      this.enemyInterval = 1000
-      this.debug = false
-      this.winningScore = 40
-      this.fontColor = "black"
       this.maxTime = 5000
-      this.reset()
+      this.winningScore = 30
+      this.enemyInterval = 1000
+      this.fontColor = "black"
+      this.debug = false
     }
 
     update(deltaTime) {
@@ -97,11 +96,12 @@ window.addEventListener("load", () => {
       this.enemies.push(new FlyingEnemy(this))
     }
 
-    restart() {
+    start() {
       this.reset()
       animate(0)
     }
 
+    // holds properties that will change during gameplay and will need to be reset when starting a new game
     reset() {
       this.speed = 0
       this.enemies = []
@@ -123,9 +123,10 @@ window.addEventListener("load", () => {
   }
 
   let game = new Game(CANVAS_WIDTH, CANVAS_HEIGHT)
-  let lastTime = 0
+  let lastTime
 
-  function animate(timestamp) {
+  const animate = (timestamp) => {
+    if (!lastTime) { lastTime = timestamp }
     const deltaTime = timestamp - lastTime
     lastTime = timestamp
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
@@ -134,8 +135,11 @@ window.addEventListener("load", () => {
 
     if (!game.gameOver) {
       requestAnimationFrame(animate)
+    } else {
+      lastTime = null
     }
   }
 
-  animate(0)
+  game.start()
+
 })
