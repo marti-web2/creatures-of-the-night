@@ -10,6 +10,8 @@ export default class InputHandler {
         this.keys.push(e.key)
       } else if (e.key === "d") {
         this.game.debug = !this.game.debug
+      } else if(e.key === 'Enter' && this.game.gameOver) {
+        this.game.restart()
       }
     })
     window.addEventListener("keyup", (e) => {

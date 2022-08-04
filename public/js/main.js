@@ -5,7 +5,6 @@ import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies.js"
 import UI from "./UI.js"
 
 window.addEventListener("load", () => {
-  const loading = document.getElementById("loading")
   loading.style.display = "none"
   const ctx = canvas1.getContext("2d")
   const CANVAS_WIDTH = (canvas1.width = 1667)
@@ -16,30 +15,15 @@ window.addEventListener("load", () => {
       this.width = width
       this.height = height
       this.groundMargin = 40
-      this.speed = 0
       this.maxSpeed = 4
-      this.background = new Background(this)
-      this.player = new Player(this)
-      this.input = new InputHandler(this)
-      this.UI = new UI(this)
-      this.enemies = []
-      this.particles = []
       this.maxParticles = 128
-      this.collisions = []
       this.splashParticles = 30
-      this.floatingMessages = []
-      this.enemyTimer = 0
       this.enemyInterval = 1000
       this.debug = false
-      this.score = 0
       this.winningScore = 40
       this.fontColor = "black"
-      this.time = 0
-      this.maxTime = 30000
-      this.gameOver = false
-      this.lives = 5
-      this.player.currentState = this.player.states[0]
-      this.player.currentState.enter()
+      this.maxTime = 5000
+      this.reset()
     }
 
     update(deltaTime) {
@@ -111,11 +95,34 @@ window.addEventListener("load", () => {
         this.enemies.push(new ClimbingEnemy(this))
       }
       this.enemies.push(new FlyingEnemy(this))
-      console.log(this.enemies)
+    }
+
+    restart() {
+      this.reset()
+      animate(0)
+    }
+
+    reset() {
+      this.speed = 0
+      this.enemies = []
+      this.particles = []
+      this.collisions = []
+      this.floatingMessages = []
+      this.enemyTimer = 0
+      this.score = 0
+      this.time = 0
+      this.gameOver = false
+      this.lives = 5
+      this.background = new Background(this)
+      this.player = new Player(this)
+      this.input = new InputHandler(this)
+      this.UI = new UI(this)
+      this.player.currentState = this.player.states[0]
+      this.player.currentState.enter()
     }
   }
 
-  const game = new Game(CANVAS_WIDTH, CANVAS_HEIGHT)
+  let game = new Game(CANVAS_WIDTH, CANVAS_HEIGHT)
   let lastTime = 0
 
   function animate(timestamp) {
