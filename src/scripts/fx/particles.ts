@@ -9,9 +9,8 @@ export interface Particle {
   speedY: number | null
   size: number | null
 
-  update():void
-  draw(ctx:CanvasRenderingContext2D):void
-
+  update(): void
+  draw(ctx: CanvasRenderingContext2D): void
 }
 
 export class Particle implements Particle {
@@ -22,7 +21,6 @@ export class Particle implements Particle {
   speedX: number | null
   speedY: number | null
   size: number | null
-
 
   constructor(game: IGame) {
     this.game = game
@@ -45,9 +43,9 @@ export class Particle implements Particle {
 }
 
 export class Dust extends Particle {
-  color:string
+  color: string
 
-  constructor(game:IGame, x:number, y:number) {
+  constructor(game: IGame, x: number, y: number) {
     super(game)
     this.size = Math.random() * 10 + 10
     this.x = x
@@ -57,7 +55,7 @@ export class Dust extends Particle {
     this.color = "rgba(0, 0, 0, 0.2)"
   }
 
-  draw(ctx:CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath()
     ctx.arc(this.x!, this.y!, this.size!, 0, Math.PI * 2)
     ctx.fillStyle = this.color
@@ -69,7 +67,7 @@ export class Splash extends Particle {
   gravity: number
   image: HTMLImageElement
 
-  constructor(game:IGame, x:number, y:number) {
+  constructor(game: IGame, x: number, y: number) {
     super(game)
     this.size = Math.random() * 100 + 100
     this.x = x - this.size * 0.4
@@ -77,7 +75,7 @@ export class Splash extends Particle {
     this.speedX = Math.random() * 6 - 4
     this.speedY = Math.random() * 2 + 1
     this.gravity = 0
-    this.image = document.getElementById('fire') as HTMLImageElement
+    this.image = document.getElementById("fire") as HTMLImageElement
   }
 
   update() {
@@ -86,19 +84,19 @@ export class Splash extends Particle {
     this.y! += this.gravity
   }
 
-  draw(ctx:CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.drawImage(this.image, this.x!, this.y!, this.size!, this.size!)
   }
 }
 
 export class Fire extends Particle {
   image: HTMLImageElement
-  angle:number
-  va:number
+  angle: number
+  va: number
 
-  constructor(game:IGame, x:number, y:number) {
+  constructor(game: IGame, x: number, y: number) {
     super(game)
-    this.image = document.getElementById('fire') as HTMLImageElement
+    this.image = document.getElementById("fire") as HTMLImageElement
     this.size = Math.random() * 100 + 100
     this.x = x
     this.y = y
@@ -114,7 +112,7 @@ export class Fire extends Particle {
     this.x! += Math.sin(this.angle * 5)
   }
 
-  draw(ctx:CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.save()
     ctx.translate(this.x!, this.y!)
     ctx.rotate(this.angle)

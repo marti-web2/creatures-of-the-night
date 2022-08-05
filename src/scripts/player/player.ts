@@ -41,7 +41,7 @@ export default class Player {
     this.y = this.game.height - this.height - this.game.groundMargin
     this.vy = 0
     this.weight = 1
-    this.image = document.getElementById('player') as HTMLImageElement
+    this.image = document.getElementById("player") as HTMLImageElement
     this.frameX = 0
     this.frameY = 0
     this.maxFrame = null
@@ -57,7 +57,7 @@ export default class Player {
       new Falling(this.game),
       new Rolling(this.game),
       new Diving(this.game),
-      new Hit(this.game)
+      new Hit(this.game),
     ]
     this.currentState = null
   }
@@ -113,7 +113,7 @@ export default class Player {
     }
   }
 
-  draw(ctx:CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D) {
     if (this.game.debug) {
       ctx.strokeRect(this.x, this.y, this.width, this.height)
     }
@@ -134,7 +134,7 @@ export default class Player {
     return this.y >= this.game.height - this.height - this.game.groundMargin
   }
 
-  setState(state:number, speed:number) {
+  setState(state: number, speed: number) {
     this.currentState = this.states[state]
     this.game.speed = this.game.maxSpeed * speed
     this.currentState.enter()

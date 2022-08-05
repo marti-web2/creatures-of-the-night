@@ -1,4 +1,4 @@
-import  IGame  from '../main'
+import IGame from "../main"
 /* Capture and keep track of user input */
 
 export default interface InputHandlerInterface {
@@ -7,8 +7,7 @@ export default interface InputHandlerInterface {
   listenFor: string[]
 }
 
-
- export class InputHandler implements InputHandlerInterface {
+export class InputHandler implements InputHandlerInterface {
   game: IGame
   keys: string[]
   listenFor: string[]
@@ -22,7 +21,7 @@ export default interface InputHandlerInterface {
         this.keys.push(e.key)
       } else if (e.key === "d") {
         this.game.debug = !this.game.debug
-      } else if (e.key === 'Enter' && this.game.gameOver) {
+      } else if (e.key === "Enter" && this.game.gameOver) {
         this.game.start()
       }
     })

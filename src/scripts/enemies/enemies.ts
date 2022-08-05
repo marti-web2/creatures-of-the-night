@@ -73,8 +73,8 @@ class Enemy {
 
 export class FlyingEnemy extends Enemy {
   image: HTMLImageElement
-  angle:number
-  va:number
+  angle: number
+  va: number
 
   constructor(game: IGame) {
     super()
@@ -86,7 +86,7 @@ export class FlyingEnemy extends Enemy {
     this.speedX = Math.random() + 1
     this.speedY = 0
     this.maxFrame = 5
-    this.image = document.getElementById('enemy_fly') as HTMLImageElement
+    this.image = document.getElementById("enemy_fly") as HTMLImageElement
     this.angle = 0
     this.va = Math.random() * 0.1 + 0.1
   }
@@ -106,7 +106,7 @@ export class GroundEnemy extends Enemy {
     this.height = 87
     this.x = this.game.width
     this.y = this.game.height - this.height - this.game.groundMargin
-    this.image = document.getElementById('enemy_plant') as HTMLImageElement
+    this.image = document.getElementById("enemy_plant") as HTMLImageElement
     this.speedX = 0
     this.speedY = 0
     this.maxFrame = 1
@@ -125,7 +125,7 @@ export class ClimbingEnemy extends Enemy {
     this.height = 144
     this.x = this.game.width
     this.y = Math.random() * this.game.height * 0.5
-    this.image = document.getElementById('enemy_spider_big') as HTMLImageElement
+    this.image = document.getElementById("enemy_spider_big") as HTMLImageElement
     this.speedX = 0
     this.speedY = Math.random() > 0.5 ? 1 : -1
     this.maxFrame = 5

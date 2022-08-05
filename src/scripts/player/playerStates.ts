@@ -1,5 +1,5 @@
 import InputHandlerInterface from "../controls/input"
-import  IGame  from "../main"
+import IGame from "../main"
 import { Dust, Splash, Fire } from "../particles"
 
 const states = {
@@ -16,22 +16,22 @@ export interface State {
   state: string
   game: IGame
 
-  enter():void
-  handleInput(input:string[]):void
+  enter(): void
+  handleInput(input: string[]): void
 }
 
 export class State implements State {
   state: string
   game: IGame
 
-  constructor(state:string, game:IGame) {
+  constructor(state: string, game: IGame) {
     this.state = state // debug
     this.game = game
   }
 }
 
 export class Sitting extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("SITTING", game)
   }
 
@@ -41,7 +41,7 @@ export class Sitting extends State {
     this.game.player.frameY = 5
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     if (input.includes("ArrowLeft") || input.includes("ArrowRight")) {
       this.game.player.setState(states.RUNNING, 1)
     } else if (input.includes("c")) {
@@ -51,7 +51,7 @@ export class Sitting extends State {
 }
 
 export class Running extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("RUNNING", game)
   }
 
@@ -61,7 +61,7 @@ export class Running extends State {
     this.game.player.frameY = 3
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     this.game.particles.push(
       new Dust(
         this.game,
@@ -80,7 +80,7 @@ export class Running extends State {
 }
 
 export class Jumping extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("JUMPING", game)
   }
 
@@ -93,7 +93,7 @@ export class Jumping extends State {
     this.game.player.frameY = 1
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     if (this.game.player.vy > this.game.player.weight) {
       this.game.player.setState(states.FALLING, 1)
     } else if (input.includes("c")) {
@@ -105,7 +105,7 @@ export class Jumping extends State {
 }
 
 export class Falling extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("FALLING", game)
   }
 
@@ -115,7 +115,7 @@ export class Falling extends State {
     this.game.player.frameY = 2
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     if (this.game.player.onGround()) {
       this.game.player.setState(states.RUNNING, 1)
     } else if (input.includes("ArrowDown")) {
@@ -125,7 +125,7 @@ export class Falling extends State {
 }
 
 export class Rolling extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("ROLLING", game)
   }
 
@@ -135,7 +135,7 @@ export class Rolling extends State {
     this.game.player.frameY = 6
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     this.game.particles.unshift(
       new Fire(
         this.game,
@@ -160,7 +160,7 @@ export class Rolling extends State {
 }
 
 export class Diving extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("DIVING", game)
   }
 
@@ -171,7 +171,7 @@ export class Diving extends State {
     this.game.player.vy = 15
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     this.game.particles.unshift(
       new Fire(
         this.game,
@@ -197,7 +197,7 @@ export class Diving extends State {
 }
 
 export class Hit extends State {
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     super("HIT", game)
   }
 
@@ -207,7 +207,7 @@ export class Hit extends State {
     this.game.player.frameY = 4
   }
 
-  handleInput(input:string[]) {
+  handleInput(input: string[]) {
     if (this.game.player.frameX >= 10 && this.game.player.onGround()) {
       this.game.player.setState(states.RUNNING, 1)
     } else if (this.game.player.frameX >= 10 && !this.game.player.onGround()) {

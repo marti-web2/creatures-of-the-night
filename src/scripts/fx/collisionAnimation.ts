@@ -1,4 +1,4 @@
-import  IGame  from "./main"
+import IGame from "./main"
 
 export default interface ICollisionAnimation {
   game: IGame
@@ -17,8 +17,8 @@ export default interface ICollisionAnimation {
   frameInterval: number
   frameTimer: number
 
-  update(deltaTime:number):void
-  draw(ctx:CanvasRenderingContext2D):void
+  update(deltaTime: number): void
+  draw(ctx: CanvasRenderingContext2D): void
 }
 
 export class CollisionAnimation implements ICollisionAnimation {
@@ -38,9 +38,11 @@ export class CollisionAnimation implements ICollisionAnimation {
   frameInterval: number
   frameTimer: number
 
-  constructor(game:IGame, x:number, y:number) {
+  constructor(game: IGame, x: number, y: number) {
     this.game = game
-    this.image = document.getElementById('collisionAnimation') as HTMLImageElement
+    this.image = document.getElementById(
+      "collisionAnimation"
+    ) as HTMLImageElement
     this.spriteWidth = 100
     this.spriteHeight = 90
     this.sizeModifier = Math.random() + 0.5
@@ -56,7 +58,7 @@ export class CollisionAnimation implements ICollisionAnimation {
     this.frameTimer = 0
   }
 
-  update(deltaTime:number) {
+  update(deltaTime: number) {
     this.x -= this.game.speed
     if (this.frameTimer > this.frameInterval) {
       this.frameX++
@@ -70,7 +72,7 @@ export class CollisionAnimation implements ICollisionAnimation {
     }
   }
 
-  draw(ctx:CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.drawImage(
       this.image,
       this.frameX * this.spriteWidth,

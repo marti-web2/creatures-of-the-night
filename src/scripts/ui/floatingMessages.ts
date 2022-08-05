@@ -7,8 +7,8 @@ export default interface IFloatingMessage {
   markedForDeletion: boolean
   timer: number
 
-  update():void
-  draw(ctx: CanvasRenderingContext2D):void
+  update(): void
+  draw(ctx: CanvasRenderingContext2D): void
 }
 
 export class FloatingMessage implements IFloatingMessage {
@@ -20,7 +20,13 @@ export class FloatingMessage implements IFloatingMessage {
   markedForDeletion: boolean
   timer: number
 
-  constructor(value: string, x: number, y: number, targetX: number, targetY: number) {
+  constructor(
+    value: string,
+    x: number,
+    y: number,
+    targetX: number,
+    targetY: number
+  ) {
     this.value = value
     this.x = x
     this.y = y

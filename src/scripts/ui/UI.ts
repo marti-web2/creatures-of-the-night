@@ -6,14 +6,14 @@ export class UI {
   fontFamily: string
   livesImage: HTMLImageElement
 
-  constructor(game:IGame) {
+  constructor(game: IGame) {
     this.game = game
     this.fontSize = 30
     this.fontFamily = "Creepster, serif"
-    this.livesImage = document.getElementById('lives') as HTMLImageElement
+    this.livesImage = document.getElementById("lives") as HTMLImageElement
   }
 
-  draw(ctx:CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D) {
     ctx.save()
     ctx.shadowOffsetX = 2
     ctx.shadowOffsetY = 2
@@ -52,7 +52,7 @@ export class UI {
           this.game.height * 0.5 + 20
         )
         ctx.fillText(
-          "\( Press ENTER to restart game \)",
+          "( Press ENTER to restart game )",
           this.game.width * 0.5,
           this.game.height * 0.5 + 40
         )
@@ -69,7 +69,7 @@ export class UI {
           this.game.height * 0.5 + 20
         )
         ctx.fillText(
-          "\( Press ENTER to restart game \)",
+          "( Press ENTER to restart game )",
           this.game.width * 0.5,
           this.game.height * 0.5 + 40
         )

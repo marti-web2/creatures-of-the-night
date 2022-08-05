@@ -1,11 +1,11 @@
 import Player from "./player/player"
 import Background from "./environment/background"
 import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies/enemies"
-import {UI} from "./ui/UI"
-import IFloatingMessage from './ui/floatingMessages'
+import { UI } from "./ui/UI"
+import IFloatingMessage from "./ui/floatingMessages"
 import ICollisionAnimation from "./collisionAnimation"
 import { Particle, Dust, Splash, Fire } from "./particles"
-import {InputHandler} from "./controls/input"
+import { InputHandler } from "./controls/input"
 
 export default interface IGame {
   width: number
@@ -42,9 +42,9 @@ export default interface IGame {
 }
 
 window.addEventListener("load", () => {
-  const loading = document.getElementById('loading') as HTMLHeadingElement
+  const loading = document.getElementById("loading") as HTMLHeadingElement
   loading.style.display = "none"
-  const canvas = document.getElementById('canvas1') as HTMLCanvasElement
+  const canvas = document.getElementById("canvas1") as HTMLCanvasElement
   const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
   const CANVAS_WIDTH = (canvas.width = 1667)
   const CANVAS_HEIGHT = (canvas.height = 500)
@@ -143,9 +143,15 @@ window.addEventListener("load", () => {
         collision.update(deltaTime)
       })
       this.enemies = this.enemies.filter((enemy) => !enemy.markedForDeletion)
-      this.particles = this.particles.filter((particle) => !particle.markedForDeletion)
-      this.collisions = this.collisions.filter((collision) => !collision.markedForDeletion)
-      this.floatingMessages = this.floatingMessages.filter((msg) => !msg.markedForDeletion)
+      this.particles = this.particles.filter(
+        (particle) => !particle.markedForDeletion
+      )
+      this.collisions = this.collisions.filter(
+        (collision) => !collision.markedForDeletion
+      )
+      this.floatingMessages = this.floatingMessages.filter(
+        (msg) => !msg.markedForDeletion
+      )
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -178,7 +184,9 @@ window.addEventListener("load", () => {
     }
 
     start() {
-      if (this.gameOver) { this.reset() }
+      if (this.gameOver) {
+        this.reset()
+      }
       requestAnimationFrame(animate)
     }
 
@@ -208,7 +216,9 @@ window.addEventListener("load", () => {
 
   function animate(timestamp: number) {
     // Update lastTime to catch up with the current timestamp
-    if (!lastTime) { lastTime = timestamp }
+    if (!lastTime) {
+      lastTime = timestamp
+    }
 
     const deltaTime = timestamp - lastTime
     lastTime = timestamp
@@ -216,10 +226,12 @@ window.addEventListener("load", () => {
     game.update(deltaTime)
     game.draw(ctx)
 
-    if (!game.gameOver) { requestAnimationFrame(animate) }
-    else { lastTime = 0 }
+    if (!game.gameOver) {
+      requestAnimationFrame(animate)
+    } else {
+      lastTime = 0
+    }
   }
 
   game.start()
-
 })

@@ -10,7 +10,13 @@ class Layer {
   x: number
   y: number
 
-  constructor(game: IGame, width: number, height: number, speedModifier: number, image: HTMLImageElement) {
+  constructor(
+    game: IGame,
+    width: number,
+    height: number,
+    speedModifier: number,
+    image: HTMLImageElement
+  ) {
     this.game = game
     this.width = width
     this.height = height
@@ -60,11 +66,11 @@ export default class Background {
     this.game = game
     this.width = 1667
     this.height = 500
-    this.layer1Image = document.getElementById('layer1') as HTMLImageElement
-    this.layer2Image = document.getElementById('layer2') as HTMLImageElement
-    this.layer3Image = document.getElementById('layer3') as HTMLImageElement
-    this.layer4Image = document.getElementById('layer4') as HTMLImageElement
-    this.layer5Image = document.getElementById('layer5') as HTMLImageElement
+    this.layer1Image = document.getElementById("layer1") as HTMLImageElement
+    this.layer2Image = document.getElementById("layer2") as HTMLImageElement
+    this.layer3Image = document.getElementById("layer3") as HTMLImageElement
+    this.layer4Image = document.getElementById("layer4") as HTMLImageElement
+    this.layer5Image = document.getElementById("layer5") as HTMLImageElement
     this.layer1 = new Layer(
       this.game,
       this.width,
