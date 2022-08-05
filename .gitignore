@@ -1,2 +1,8 @@
+# misc project files
 *.txt
+
+# node
 node_modules/
+
+# compiled
+public/js
