@@ -2,9 +2,10 @@
   "name": "endless-runner",
   "version": "1.0.0",
   "description": "",
-  "main": "pretter.config.js",
+  "source": "./src/index.html",
   "scripts": {
-    "prettier": "prettier --write --no-semi ."
+    "prettier": "prettier --write --no-semi .",
+    "dev": "parcel"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,9 @@
   "homepage": "https://github.com/marti-web2/endless-runner#readme",
   "dependencies": {
     "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0"
   }
 }

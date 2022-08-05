@@ -2,7 +2,8 @@
 *.txt
 
 # node
-node_modules/
+node_modules
 
 # compiled
-public/js
+dist
+.parcel-cache
