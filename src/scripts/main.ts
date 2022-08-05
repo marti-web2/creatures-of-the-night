@@ -3,8 +3,8 @@ import Background from "./environment/background"
 import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies/enemies"
 import { UI } from "./ui/UI"
 import IFloatingMessage from "./ui/floatingMessages"
-import ICollisionAnimation from "./collisionAnimation"
-import { Particle, Dust, Splash, Fire } from "./particles"
+import ICollisionAnimation from "./fx/collisionAnimation"
+import { Particle, Dust, Splash, Fire } from "./fx/particles"
 import { InputHandler } from "./controls/input"
 
 export default interface IGame {

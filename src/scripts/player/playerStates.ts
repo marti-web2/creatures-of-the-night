@@ -1,6 +1,6 @@
 import InputHandlerInterface from "../controls/input"
 import IGame from "../main"
-import { Dust, Splash, Fire } from "../particles"
+import { Dust, Splash, Fire } from "../fx/particles"
 
 const states = {
   SITTING: 0,

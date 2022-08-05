@@ -8,7 +8,7 @@ import {
   Diving,
   Hit,
 } from "./playerStates"
-import { CollisionAnimation } from "../collisionAnimation"
+import { CollisionAnimation } from "../fx/collisionAnimation"
 import { FloatingMessage } from "../ui/floatingMessages"
 import IGame from "../main"
 import InputHandlerInterface from "../controls/input"

@@ -1,4 +1,4 @@
-import IGame from "./main"
+import IGame from "../main"
 
 export interface Particle {
   game: IGame
