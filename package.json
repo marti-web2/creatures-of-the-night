@@ -18,11 +18,9 @@
     "url": "https://github.com/marti-web2/endless-runner/issues"
   },
   "homepage": "https://github.com/marti-web2/endless-runner#readme",
-  "dependencies": {
-    "prettier": "^2.7.1"
-  },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.7.0"
+    "parcel": "^2.7.0",
+    "prettier": "^2.7.1"
   }
 }
