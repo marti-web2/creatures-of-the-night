@@ -1,0 +1,8 @@
+#player,
+#fire,
+#collisionAnimation,
+#lives,
+[id^="layer"],
+[id^="enemy"] {
+  display: none;
+}
