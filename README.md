@@ -21,7 +21,7 @@
   <sub>
     <ul>
       <li><b>Type: </b><span> Game</span></li>
-      <li><b>Genre: </b><span> Creatures of the Night</span></li>
+      <li><b>Genre: </b><span> Endless Runner</span></li>
       <li><b>Platform: </b><span> Web</span></li>
     </ul>
   </sub>
