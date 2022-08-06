@@ -4,7 +4,7 @@ import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies/enemies"
 import { UI } from "./ui/UI"
 import IFloatingMessage from "./ui/floatingMessages"
 import ICollisionAnimation from "./fx/collisionAnimation"
-import { Particle, Dust, Splash, Fire } from "./fx/particles"
+import { Dust, Splash, Fire } from "./fx/particles"
 import { InputHandler } from "./controls/input"
 
 export default interface IGame {

@@ -11,7 +11,6 @@ import {
 import { CollisionAnimation } from "../fx/collisionAnimation"
 import { FloatingMessage } from "../ui/floatingMessages"
 import IGame from "../main"
-import InputHandlerInterface from "../controls/input"
 
 export default class Player {
   game: IGame

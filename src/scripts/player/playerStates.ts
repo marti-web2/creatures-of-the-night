@@ -1,4 +1,3 @@
-import InputHandlerInterface from "../controls/input"
 import IGame from "../main"
 import { Dust, Splash, Fire } from "../fx/particles"
 
