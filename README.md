@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    ol li {
-      margin: 10px 0;
-    }
-
-    div {
-      margin: 26px 0;
-    }
-
-    #logo {
-      display: block;
-      margin: auto;
-    }
-  </style>
-</head>
-
-<body>
   <img id="logo" src="https://m.media-amazon.com/images/I/71-XjGODeVL._AC_SX450_.jpg" alt="Logo" width="150"
-    height="150" />
+    height="150" style="display: block; margin: auto;" />
   </p>
   <h1 align="center">Welcome to Creatures of the Night!</h1>
   <p align="center">
@@ -39,9 +15,9 @@
       expires.</b></br>
     <sub>
       <ul>
-        <li><b>Type:</b><span style="padding-left: 5px">Game</span></li>
-        <li><b>Genre:</b><span style="padding-left: 5px">Creatures of the Night</span></li>
-        <li><b>Platform:</b><span style="padding-left: 5px">Web</span></li>
+        <li style="margin: 10px 0;"><b>Type:</b><span style="padding-left: 5px;">Game</span></li>
+        <li style="margin: 10px 0;"><b>Genre:</b><span style="padding-left: 5px;">Creatures of the Night</span></li>
+        <li style="margin: 10px 0;"><b>Platform:</b><span style="padding-left: 5px;">Web</span></li>
       </ul>
       <sub>
   </p>
@@ -70,13 +46,13 @@
 
   </details>
 
-  <div id="installation">
+  <div id="installation" style="margin: 26px 0;">
     <p>## ➤ <b>Installation</b><br />
     <p>You can host the game on your local server via Parcel by running the following two npm commands:</p>
     <p><code>npm install</code></p>
     <p><code>npm run dev</code>
   </div>
-  <div id="Configuration">
+  <div id="Configuration" style="margin: 26px 0;">
     <p>## ➤ <b>Configuration</b><br />
     <p>Parameters for type checking are set in <code>tsconfig.json</code></p>
     <p><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">Offical Documentation</a></p>
@@ -85,21 +61,18 @@
     <p style="padding-top: 12px">Parameters for automated code formatting are set in <code>prettier.config.js</code></p>
     <p><a href="https://prettier.io/docs/en/configuration.html">Offical Documentation</a></p>
   </div>
-  <div id="future-work">
+  <div id="future-work" style="margin: 26px 0;">
     <p>## ➤ <b>Future Work</b><br />
     <p>That's it for now! Lot's of exiting features a going to be added in the future. If you stumble upon an issue or
       have a feature request you are very welcome to open a Github issue or pull request. I would be so happy if you
       gave this repository a star, tweeted about it or told your friends about this little corner of the Internet ❤️
       Have a great day!</p>
   </div>
-  <div id="contributors">
+  <div id="contributors" style="margin: 26px 0;">
     <p>## ➤ <b>Contributors</b><br />
       <a href="https://twitter.com/marti_mcdee"><img alt="Marti twitter profile pic"
           src="https://twitter.com/marti_mcdee/photo" width="100" /></a>
   </div>
-  <!--     <div id="license"><p>## ➤ <b>License</b><br />
+  <!--     <div id="license" style="margin: 26px 0;"><p>## ➤ <b>License</b><br />
       <a href="https://opensource.org/licenses/MIT">Licensed under [MIT]</a>
    </div> -->
-</body>
-
-</html>
