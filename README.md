@@ -29,13 +29,11 @@
 
 <br />
 <h2>Story</h2>
------------------------------------------------------------------------------------------------------------------------
-
 Hanz Pupman is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
 Help our friend find his way back home to his lovely Undgretta before the sun goes down and he finds himself having
 to spend the night outdoors amongst the creepy-crawlies of the forest.
+<br />
 
------------------------------------------------------------------------------------------------------------------------
 <h3>## ➤ Installation</h3>
 You can host the game on your local server via Parcel by running the following two npm commands:
 <br />
