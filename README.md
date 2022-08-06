@@ -42,8 +42,8 @@ You can host the game on your local server via Parcel by running the following t
 <br />
 
 <h3>## ➤ Configuration</h3>
-Parameters for type checking are set in <code>tsconfig.json</code><span>| </span>
-<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html"> Offical Documentation </a><span>|</span>
+Parameters for type checking are set in <code>tsconfig.json</code><span> | </span>
+<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html"> Offical Documentation </a><span> | </span>
 <em>By default, Parcel does not perform any type checking. This is why --noEmit is set to true. Type checking may
   also be achieved by running tsc --noEmit in a separate terminal.</em>
 Parameters for automated code formatting are set in <code>prettier.config.js</code><span>| </span>
