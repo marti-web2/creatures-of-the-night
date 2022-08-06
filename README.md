@@ -47,7 +47,7 @@ Parameters for type checking are set in <code>tsconfig.json</code><span> | </spa
 <em>By default, Parcel does not perform any type checking. This is why --noEmit is set to true. Type checking may
   also be achieved by running tsc --noEmit in a separate terminal.</em>
 Parameters for automated code formatting are set in <code>prettier.config.js</code><span> | </span>
-<a href="https://prettier.io/docs/en/configuration.html"> Offical Documentation </a><span> | </span>
+<a href="https://prettier.io/docs/en/configuration.html"> Offical Documentation </a>
 <br />
 
 <h3>## ➤ Future Work</h3>
