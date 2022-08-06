@@ -50,7 +50,6 @@ Parameters for automated code formatting are set in <code>prettier.config.js</co
 <a href="https://prettier.io/docs/en/configuration.html">| Offical Documentation |</a>
 <br />
 
-
 <h3>## ➤ Future Work</h3>
 That's it for now! Lot's of exiting features a going to be added in the future. If you stumble upon an issue or
 have a feature request you are very welcome to open a Github issue or pull request. I would be so happy if you
