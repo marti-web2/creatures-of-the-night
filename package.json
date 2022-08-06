@@ -12,10 +12,10 @@
     "url": "git+https://github.com/marti-web2/endless-runner.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Marti McDee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marti-web2/endless-runner/issues"
+    "url": "https://github.com/marti-web2/endless-runner/Type: Game  Genre: Endless Runner  Platform: Webissues"
   },
   "homepage": "https://github.com/marti-web2/endless-runner#readme",
   "devDependencies": {
