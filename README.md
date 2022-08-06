@@ -57,4 +57,4 @@ Have a great day!
 <br />
 
 <h3>## ➤ Contributors</h3>
-<a href="https://twitter.com/marti_mcdee">@marti_mcdee</a>
+<a href="https://twitter.com/marti_mcdee" target="_blank">@marti_mcdee</a>
