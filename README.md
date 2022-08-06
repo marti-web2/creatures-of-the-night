@@ -1,6 +1,6 @@
 <div align="center">
-<img id="logo" src="https://m.media-amazon.com/images/I/71-XjGODeVL._AC_SX450_.jpg" alt="Logo" width="150"
-    height="150" />
+<img id="logo" src="https://m.media-amazon.com/images/I/71-XjGODeVL._AC_SX450_.jpg" alt="Logo" width="100"
+    height="100" />
 </div>
   </p>
   <h1 align="center">Welcome to Creatures of the Night!</h1>
@@ -31,15 +31,15 @@
   <br />
   <h2>Story</h2>
 
-  Hanz Pupman is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
-    Help our friend find his way back home to his lovely Undgretta before the sun goes down and he finds himself having
-    to spend the night outdoors amongst the creepy-crawlies of the forest.
+ <p> Hanz Pupman is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
+Help our friend find his way back home to his lovely Undgretta before the sun goes down and he finds himself having
+to spend the night outdoors amongst the creepy-crawlies of the forest.</p>
 <br />
 <h3>## ➤ Installation</h3>
 You can host the game on your local server via Parcel by running the following two npm commands:
-
-<code>npm install</code>
-<code>npm run dev</code>
+<br />
+<div><code>npm install</code></div>
+<div><code>npm run dev</code></div>
 <br />
 
 <h3>## ➤ Configuration</h3>
