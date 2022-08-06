@@ -24,7 +24,7 @@
       <li><b>Genre: </b><span> Creatures of the Night</span></li>
       <li><b>Platform: </b><span> Web</span></li>
     </ul>
-    <sub>
+  </sub>
 </p>
 
 <br />
@@ -42,12 +42,12 @@ You can host the game on your local server via Parcel by running the following t
 <br />
 
 <h3>## ➤ Configuration</h3>
-Parameters for type checking are set in <code>tsconfig.json</code>
-<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">| Offical Documentation |</a>
+Parameters for type checking are set in <code>tsconfig.json</code><span>|</span>
+<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html"> Offical Documentation </a><span>|</span>
 <em>By default, Parcel does not perform any type checking. This is why --noEmit is set to true. Type checking may
   also be achieved by running tsc --noEmit in a separate terminal.</em>
-Parameters for automated code formatting are set in <code>prettier.config.js</code>
-<a href="https://prettier.io/docs/en/configuration.html">| Offical Documentation |</a>
+Parameters for automated code formatting are set in <code>prettier.config.js</code><span>|</span>
+<a href="https://prettier.io/docs/en/configuration.html"> Offical Documentation </a><span>|</span>
 <br />
 
 <h3>## ➤ Future Work</h3>
