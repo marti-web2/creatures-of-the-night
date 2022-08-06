@@ -30,25 +30,27 @@
 
   <br />
   <h2>Story</h2>
+-----------------------------------------------------------------------------------------------------------------------
 
- <p> Hanz Pupman is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
+Hanz Pupman is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
 Help our friend find his way back home to his lovely Undgretta before the sun goes down and he finds himself having
-to spend the night outdoors amongst the creepy-crawlies of the forest.</p>
-<br />
+to spend the night outdoors amongst the creepy-crawlies of the forest.
+
+-----------------------------------------------------------------------------------------------------------------------
 <h3>## ➤ Installation</h3>
 You can host the game on your local server via Parcel by running the following two npm commands:
 <br />
-<div><code>npm install</code></div>
-<div><code>npm run dev</code></div>
+<code>npm install</code>
+<code>npm run dev</code>
 <br />
 
 <h3>## ➤ Configuration</h3>
 Parameters for type checking are set in <code>tsconfig.json</code>
-<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">Offical Documentation</a>
+<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">| Offical Documentation |</a>
 <em>By default, Parcel does not perform any type checking. This is why --noEmit is set to true. Type checking may
 also be achieved by running tsc --noEmit in a separate terminal.</em>
 Parameters for automated code formatting are set in <code>prettier.config.js</code>
-<a href="https://prettier.io/docs/en/configuration.html">Offical Documentation</a>
+<a href="https://prettier.io/docs/en/configuration.html">| Offical Documentation |</a>
 <br />
 
 
