@@ -38,5 +38,5 @@ export class Sounds {
     this.sounds[name].currentTime = 0
     this.sounds[name].volume = 0.4
     this.sounds[name].play()
-  }  
+  }
 }
