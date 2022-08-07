@@ -16,7 +16,6 @@ export default interface ICollisionAnimation {
   fps: number
   frameInterval: number
   frameTimer: number
-
   update(deltaTime: number): void
   draw(ctx: CanvasRenderingContext2D): void
 }

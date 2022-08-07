@@ -21,6 +21,7 @@ export default class Player {
   vy: number
   weight: number
   image: HTMLImageElement
+
   frameX: number
   frameY: number
   maxFrame: number | null
@@ -41,6 +42,7 @@ export default class Player {
     this.vy = 0
     this.weight = 1
     this.image = document.getElementById("player") as HTMLImageElement
+    
     this.frameX = 0
     this.frameY = 0
     this.maxFrame = null
@@ -161,6 +163,7 @@ export default class Player {
           this.currentState === this.states[5]
         ) {
           this.game.score++
+          this.game.sounds.play("fireKill")
           this.game.floatingMessages.push(
             new FloatingMessage("+1", enemy.x, enemy.y, 150, 50)
           )

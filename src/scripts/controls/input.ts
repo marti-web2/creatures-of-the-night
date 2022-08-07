@@ -21,6 +21,7 @@ export class InputHandler implements InputHandlerInterface {
         this.keys.push(e.key)
       } else if (e.key === "d") {
         this.game.debug = !this.game.debug
+        this.game.sounds.toggleMusic()
       } else if (e.key === "Enter" && this.game.gameOver) {
         this.game.start()
       }

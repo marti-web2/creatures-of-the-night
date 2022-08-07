@@ -1,5 +1,6 @@
 import Player from "./player/player"
 import Background from "./environment/background"
+import { Sounds } from './sound/sounds'
 import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies/enemies"
 import { UI } from "./ui/UI"
 import IFloatingMessage from "./ui/floatingMessages"
@@ -25,6 +26,7 @@ export default interface IGame {
   particles: (Dust | Splash | Fire)[]
   collisions: ICollisionAnimation[]
   floatingMessages: IFloatingMessage[]
+  sounds: Sounds
   enemyTimer: number
   score: number
   time: number
@@ -67,6 +69,7 @@ window.addEventListener("load", () => {
     particles: (Dust | Splash | Fire)[]
     collisions: ICollisionAnimation[]
     floatingMessages: IFloatingMessage[]
+    sounds: Sounds
     enemyTimer: number
     score: number
     time: number
@@ -102,6 +105,7 @@ window.addEventListener("load", () => {
       this.player = new Player(this)
       this.input = new InputHandler(this)
       this.UI = new UI(this)
+      this.sounds = new Sounds(this)
       this.player.currentState = this.player.states[0]
       this.player.currentState.enter()
     }
