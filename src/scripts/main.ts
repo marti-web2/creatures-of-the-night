@@ -48,8 +48,8 @@ window.addEventListener("load", () => {
   loading.style.display = "none"
   const canvas = document.getElementById("canvas1") as HTMLCanvasElement
   const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
-  const CANVAS_WIDTH = (canvas.width = 1667)
-  const CANVAS_HEIGHT = (canvas.height = 500)
+  const CANVAS_WIDTH = (canvas.width = 2400)
+  const CANVAS_HEIGHT = (canvas.height = 720)
 
   class Game implements IGame {
     width: number
@@ -83,7 +83,7 @@ window.addEventListener("load", () => {
       this.width = width
       this.height = height
       this.groundMargin = 40
-      this.maxSpeed = 5
+      this.maxSpeed = 6
       this.maxParticles = 128
       this.splashParticles = 30
       this.maxTime = 30000

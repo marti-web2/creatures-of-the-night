@@ -50,7 +50,7 @@ export default class Player {
     this.frameInterval = 1000 / this.fps
     this.frameTimer = 0
     this.speed = 0
-    this.maxSpeed = this.game.maxSpeed * 0.3
+    this.maxSpeed = this.game.maxSpeed * 0.05
     this.states = [
       new Sitting(this.game),
       new Running(this.game),

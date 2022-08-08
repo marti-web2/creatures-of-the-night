@@ -55,22 +55,28 @@ export default class Background {
   layer3Image: HTMLImageElement
   layer4Image: HTMLImageElement
   layer5Image: HTMLImageElement
+  layer6Image: HTMLImageElement
+  layer7Image: HTMLImageElement
   layer1: Layer
   layer2: Layer
   layer3: Layer
   layer4: Layer
   layer5: Layer
+  layer6: Layer
+  layer7: Layer
   backgroundLayers: Layer[]
 
   constructor(game: IGame) {
     this.game = game
-    this.width = 1667
-    this.height = 500
+    this.width = 2400
+    this.height = 720
     this.layer1Image = document.getElementById("layer1") as HTMLImageElement
     this.layer2Image = document.getElementById("layer2") as HTMLImageElement
     this.layer3Image = document.getElementById("layer3") as HTMLImageElement
     this.layer4Image = document.getElementById("layer4") as HTMLImageElement
     this.layer5Image = document.getElementById("layer5") as HTMLImageElement
+    this.layer6Image = document.getElementById("layer6") as HTMLImageElement
+    this.layer7Image = document.getElementById("layer7") as HTMLImageElement
     this.layer1 = new Layer(
       this.game,
       this.width,
@@ -96,15 +102,29 @@ export default class Background {
       this.game,
       this.width,
       this.height,
-      0.8,
+      0.6,
       this.layer4Image
     )
     this.layer5 = new Layer(
       this.game,
       this.width,
       this.height,
-      1,
+      0.8,
       this.layer5Image
+    )
+    this.layer6 = new Layer(
+      this.game,
+      this.width,
+      this.height,
+      0.9,
+      this.layer6Image
+    )
+    this.layer7 = new Layer(
+      this.game,
+      this.width,
+      this.height,
+      1,
+      this.layer7Image
     )
     this.backgroundLayers = [
       this.layer1,
@@ -112,6 +132,8 @@ export default class Background {
       this.layer3,
       this.layer4,
       this.layer5,
+      this.layer6,
+      this.layer7,
     ]
   }
 
