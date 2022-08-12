@@ -10,3 +10,5 @@ dist
 
 # misc
 screenshots
+.vscode
+*.code-workspace

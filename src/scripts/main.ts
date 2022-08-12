@@ -1,6 +1,6 @@
 import Player from "./player/player"
 import Background from "./environment/background"
-import { Sounds } from './sound/sounds'
+import { Sounds } from "./sound/sounds"
 import { FlyingEnemy, ClimbingEnemy, GroundEnemy } from "./enemies/enemies"
 import { UI } from "./ui/UI"
 import IFloatingMessage from "./ui/floatingMessages"
@@ -15,7 +15,7 @@ export default interface IGame {
   maxSpeed: number
   maxParticles: number
   splashParticles: number
-  maxTime: number
+
   winningScore: number
   enemyInterval: number
   fontColor: string
@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
     maxSpeed: number
     maxParticles: number
     splashParticles: number
-    maxTime: number
+
     winningScore: number
     enemyInterval: number
     fontColor: string
@@ -86,8 +86,8 @@ window.addEventListener("load", () => {
       this.maxSpeed = 6
       this.maxParticles = 128
       this.splashParticles = 30
-      this.maxTime = 30000
-      this.winningScore = 3
+
+      this.winningScore = 30
       this.enemyInterval = 1000
       this.fontColor = "black"
       this.debug = false
@@ -99,7 +99,7 @@ window.addEventListener("load", () => {
       this.floatingMessages = []
       this.enemyTimer = 0
       this.score = 0
-      this.time = 0
+      this.time = 30000
       this.lives = 5
       this.background = new Background(this)
       this.player = new Player(this)
@@ -111,8 +111,8 @@ window.addEventListener("load", () => {
     }
 
     update(deltaTime: number) {
-      this.time += deltaTime
-      if (this.time > this.maxTime) {
+      this.time -= deltaTime
+      if (this.time <= 0) {
         this.gameOver = true
       }
       this.background.update()

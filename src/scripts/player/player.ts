@@ -42,7 +42,7 @@ export default class Player {
     this.vy = 0
     this.weight = 1
     this.image = document.getElementById("player") as HTMLImageElement
-    
+
     this.frameX = 0
     this.frameY = 0
     this.maxFrame = null
@@ -50,7 +50,7 @@ export default class Player {
     this.frameInterval = 1000 / this.fps
     this.frameTimer = 0
     this.speed = 0
-    this.maxSpeed = this.game.maxSpeed * 0.05
+    this.maxSpeed = this.game.maxSpeed * 0.25
     this.states = [
       new Sitting(this.game),
       new Running(this.game),
@@ -167,6 +167,9 @@ export default class Player {
           this.game.floatingMessages.push(
             new FloatingMessage("+1", enemy.x, enemy.y, 150, 50)
           )
+          if (this.game.score >= this.game.winningScore) {
+            this.game.gameOver = true
+          }
         } else {
           this.setState(6, 0)
           this.game.score -= 2

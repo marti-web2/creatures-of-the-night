@@ -8,8 +8,8 @@ export class Sounds {
   constructor(game: IGame) {
     this.game = game
     this.sounds = {
-      "fireKill": document.getElementById('firekill_audio') as HTMLAudioElement,
-      "music": document.getElementById('music') as HTMLAudioElement
+      fireKill: document.getElementById("firekill_audio") as HTMLAudioElement,
+      music: document.getElementById("music") as HTMLAudioElement,
     }
     this.music = this.sounds["music"]
     this.music.loop = true
