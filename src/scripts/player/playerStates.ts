@@ -124,11 +124,14 @@ export class Falling extends State {
 }
 
 export class Rolling extends State {
+ 
+
   constructor(game: IGame) {
     super("ROLLING", game)
   }
 
   enter() {
+    this.game.player.rollingTime = 0
     this.game.player.frameX = 0
     this.game.player.maxFrame = 6
     this.game.player.frameY = 6

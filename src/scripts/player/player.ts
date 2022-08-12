@@ -21,7 +21,8 @@ export default class Player {
   vy: number
   weight: number
   image: HTMLImageElement
-
+  maxRollingTime: number
+  rollingTime: number
   frameX: number
   frameY: number
   maxFrame: number | null
@@ -42,7 +43,8 @@ export default class Player {
     this.vy = 0
     this.weight = 1
     this.image = document.getElementById("player") as HTMLImageElement
-
+    this.rollingTime = 0
+    this.maxRollingTime = 3000
     this.frameX = 0
     this.frameY = 0
     this.maxFrame = null
@@ -50,7 +52,7 @@ export default class Player {
     this.frameInterval = 1000 / this.fps
     this.frameTimer = 0
     this.speed = 0
-    this.maxSpeed = this.game.maxSpeed * 0.25
+    this.maxSpeed = this.game.maxSpeed * 0.2
     this.states = [
       new Sitting(this.game),
       new Running(this.game),
@@ -99,6 +101,14 @@ export default class Player {
     // vertical boundaries
     if (this.y > this.game.height - this.height - this.game.groundMargin) {
       this.y = this.game.height - this.height - this.game.groundMargin
+    }
+
+    // rolling time
+    if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
+      this.rollingTime += deltaTime
+      if(this.rollingTime > this.maxRollingTime) { this.setState(6, 0) }
+    } else {
+      this.rollingTime = 0
     }
 
     // sprite animation

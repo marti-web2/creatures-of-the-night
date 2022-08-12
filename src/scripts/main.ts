@@ -58,7 +58,6 @@ window.addEventListener("load", () => {
     maxSpeed: number
     maxParticles: number
     splashParticles: number
-
     winningScore: number
     enemyInterval: number
     fontColor: string
@@ -83,10 +82,9 @@ window.addEventListener("load", () => {
       this.width = width
       this.height = height
       this.groundMargin = 40
-      this.maxSpeed = 6
+      this.maxSpeed = 8
       this.maxParticles = 128
       this.splashParticles = 30
-
       this.winningScore = 30
       this.enemyInterval = 1000
       this.fontColor = "black"

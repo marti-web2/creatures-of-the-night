@@ -12,16 +12,10 @@ export class Sounds {
       music: document.getElementById("music") as HTMLAudioElement,
     }
     this.music = this.sounds["music"]
-    this.music.loop = true
     this.music.volume = 0.35
-    this.music.play()
   }
 
-  playMusic(name: string) {
-    if (this.music) {
-      this.music.pause()
-    }
-    this.music = this.sounds[name]
+  playMusic() {
     this.music.loop = true
     this.music.play()
   }
