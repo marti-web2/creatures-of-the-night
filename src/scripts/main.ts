@@ -204,11 +204,10 @@ window.addEventListener("load", () => {
       this.floatingMessages = []
       this.enemyTimer = 0
       this.score = 0
-      this.time = 0
+      this.time = 30000
       this.lives = 5
       this.background = new Background(this)
       this.player = new Player(this)
-      this.input = new InputHandler(this)
       this.UI = new UI(this)
       this.player.currentState = this.player.states[0]
       this.player.currentState.enter()

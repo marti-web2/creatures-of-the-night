@@ -163,7 +163,7 @@ export default class Player {
           this.currentState === this.states[5]
         ) {
           this.game.score++
-          this.game.sounds.play("fireKill")
+          this.game.sounds.playSound("fireKill")
           this.game.floatingMessages.push(
             new FloatingMessage("+1", enemy.x, enemy.y, 150, 50)
           )
