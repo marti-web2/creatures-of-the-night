@@ -50,7 +50,7 @@ export class UI {
       ctx.fillStyle = "#eb6123"
       ctx.textAlign = "center"
       ctx.font = this.fontSize * 2 + "px " + this.fontFamily
-      if (this.game.score > this.game.winningScore) {
+      if (this.game.score >= this.game.winningScore) {
         ctx.fillText(
           "You Win!",
           this.game.width * 0.5,

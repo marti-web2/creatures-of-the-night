@@ -73,6 +73,7 @@ window.addEventListener("load", () => {
     sounds: Sounds
     enemyTimer: number
     score: number
+    maxTime: number
     time: number
     lives: number
     background: Background
@@ -81,7 +82,8 @@ window.addEventListener("load", () => {
     UI: UI
 
     constructor(width: number, height: number) {
-      this.debug = true
+      /**  Debug Mode  **/
+      this.debug = false
 
       this.width = width
       this.height = height
@@ -101,7 +103,8 @@ window.addEventListener("load", () => {
       this.floatingMessages = []
       this.enemyTimer = 0
       this.score = 0
-      this.time = 30000
+      this.maxTime = 40000
+      this.time = this.maxTime
       this.lives = 5
       this.background = new Background(this)
       this.player = new Player(this)
@@ -206,7 +209,7 @@ window.addEventListener("load", () => {
       this.floatingMessages = []
       this.enemyTimer = 0
       this.score = 0
-      this.time = 30000
+      this.time = this.maxTime
       this.lives = 5
       this.background = new Background(this)
       this.player = new Player(this)
