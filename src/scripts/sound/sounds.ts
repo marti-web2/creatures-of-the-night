@@ -17,7 +17,7 @@ export class Sounds {
 
   playMusic() {
     this.music.loop = true
-    this.music.play()
+    if(!this.game.debug) { this.music.play() }
   }
 
   toggleMusic() {

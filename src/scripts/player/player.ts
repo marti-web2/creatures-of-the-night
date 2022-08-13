@@ -10,6 +10,7 @@ import {
 } from "./playerStates"
 import { CollisionAnimation } from "../fx/collisionAnimation"
 import { FloatingMessage } from "../ui/floatingMessages"
+
 import IGame from "../main"
 
 export default class Player {
@@ -21,8 +22,8 @@ export default class Player {
   vy: number
   weight: number
   image: HTMLImageElement
-  maxRollingTime: number
-  rollingTime: number
+  power: number
+  powerDepleted: boolean
   frameX: number
   frameY: number
   maxFrame: number | null
@@ -43,8 +44,6 @@ export default class Player {
     this.vy = 0
     this.weight = 1
     this.image = document.getElementById("player") as HTMLImageElement
-    this.rollingTime = 0
-    this.maxRollingTime = 3000
     this.frameX = 0
     this.frameY = 0
     this.maxFrame = null
@@ -63,6 +62,8 @@ export default class Player {
       new Hit(this.game),
     ]
     this.currentState = null
+    this.power = this.game.maxPower
+    this.powerDepleted = false
   }
 
   update(input: string[], deltaTime: number) {
@@ -103,12 +104,18 @@ export default class Player {
       this.y = this.game.height - this.height - this.game.groundMargin
     }
 
-    // rolling time
+    // power bar
     if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
-      this.rollingTime += deltaTime
-      if(this.rollingTime > this.maxRollingTime) { this.setState(6, 0) }
-    } else {
-      this.rollingTime = 0
+      this.power -= 10 * deltaTime
+      this.game.UI.powerBar.updateHealth(this.power)
+      if (this.power <= 0) {
+        this.setState(6, 0)
+        this.powerDepleted = true
+      }
+    } else if (this.power < this.game.maxPower) {
+      this.power += 10 * deltaTime
+      this.game.UI.powerBar.updateHealth(this.power)
+      if (this.power >= this.game.maxPower) { this.powerDepleted = false }
     }
 
     // sprite animation

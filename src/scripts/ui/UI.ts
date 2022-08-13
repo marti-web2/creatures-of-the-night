@@ -1,16 +1,23 @@
 import IGame from "../main"
+import { PowerBar } from "./powerBar"
 
 export class UI {
   game: IGame
   fontSize: number
   fontFamily: string
   livesImage: HTMLImageElement
+ 
+  power: number
+  powerBar: PowerBar
 
   constructor(game: IGame) {
     this.game = game
     this.fontSize = 30
     this.fontFamily = "Creepster, serif"
     this.livesImage = document.getElementById("lives") as HTMLImageElement
+    this.power = this.game.player.power
+   
+    this.powerBar = new PowerBar(this.power)
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -35,8 +42,12 @@ export class UI {
       ctx.drawImage(this.livesImage, 25 * i + 20, 95, 25, 25)
     }
 
+    // health bar
+    this.powerBar.show(ctx)
+
     // game over messages
     if (this.game.gameOver) {
+      ctx.fillStyle = "#eb6123"
       ctx.textAlign = "center"
       ctx.font = this.fontSize * 2 + "px " + this.fontFamily
       if (this.game.score > this.game.winningScore) {
@@ -46,6 +57,7 @@ export class UI {
           this.game.height * 0.5 - 20
         )
         ctx.font = this.fontSize * 0.7 + "px " + this.fontFamily
+        ctx.fillStyle = "#000"
         ctx.fillText(
           "What are creatures of the night afraid of?...\nYOU!!",
           this.game.width * 0.5,
@@ -57,12 +69,14 @@ export class UI {
           this.game.height * 0.5 + 40
         )
       } else {
+        ctx.fillStyle = "#eb6123"
         ctx.fillText(
           "Love at first fright?",
           this.game.width * 0.5,
           this.game.height * 0.5 - 20
         )
         ctx.font = this.fontSize * 0.7 + "px " + this.fontFamily
+        ctx.fillStyle = "#000"
         ctx.fillText(
           "Nope. Better luck next time!",
           this.game.width * 0.5,

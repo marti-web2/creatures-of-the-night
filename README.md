@@ -29,7 +29,7 @@
 
 <br />
 <h2>Story</h2>
-Hanz Pupman is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
+Blackjack is a curious little furry adventurer who wandered off to far from his normal route on his morning walk.
 Help our friend find his way back home to his lovely wife Undgretta before the sun goes down and he finds himself spending the night outdoors amongst the creepy-crawlies of the forest.
 <br />
 

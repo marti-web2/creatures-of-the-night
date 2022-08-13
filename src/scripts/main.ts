@@ -9,6 +9,7 @@ import { Dust, Splash, Fire } from "./fx/particles"
 import { InputHandler } from "./controls/input"
 
 export default interface IGame {
+  maxPower: number
   width: number
   height: number
   groundMargin: number
@@ -56,6 +57,7 @@ window.addEventListener("load", () => {
     height: number
     groundMargin: number
     maxSpeed: number
+    maxPower: number
     maxParticles: number
     splashParticles: number
     winningScore: number
@@ -79,16 +81,18 @@ window.addEventListener("load", () => {
     UI: UI
 
     constructor(width: number, height: number) {
+      this.debug = true
+
       this.width = width
       this.height = height
       this.groundMargin = 40
       this.maxSpeed = 8
+      this.maxPower = 22000
       this.maxParticles = 128
       this.splashParticles = 30
-      this.winningScore = 30
+      this.winningScore = 21
       this.enemyInterval = 1000
       this.fontColor = "black"
-      this.debug = false
       this.gameOver = false
       this.speed = 0
       this.enemies = []
