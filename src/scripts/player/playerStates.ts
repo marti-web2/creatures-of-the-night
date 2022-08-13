@@ -214,9 +214,15 @@ export class Hit extends State {
   }
 
   handleInput(input: string[]) {
-    if (this.game.player.frameX >= this.maxFrame && this.game.player.onGround()) {
+    if (
+      this.game.player.frameX >= this.maxFrame &&
+      this.game.player.onGround()
+    ) {
       this.game.player.setState(states.RUNNING, 1)
-    } else if (this.game.player.frameX >= this.maxFrame && !this.game.player.onGround()) {
+    } else if (
+      this.game.player.frameX >= this.maxFrame &&
+      !this.game.player.onGround()
+    ) {
       this.game.player.setState(states.FALLING, 1)
     }
   }

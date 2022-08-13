@@ -193,9 +193,13 @@ export default class Player {
             this.game.gameOver = true
           }
         } else {
+          // player takes damage
           this.setState(6, 0)
           this.game.score -= 2
           this.game.lives--
+          this.game.floatingMessages.push(
+            new FloatingMessage("-2", this.x, this.y, 150, 50)
+          )
           if (this.game.lives <= 0) {
             this.game.gameOver = true
           }
