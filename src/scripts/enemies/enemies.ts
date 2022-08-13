@@ -121,14 +121,14 @@ export class ClimbingEnemy extends Enemy {
   constructor(game: IGame) {
     super()
     this.game = game
-    this.width = 120
-    this.height = 144
+    this.width = 160
+    this.height = 133
     this.x = this.game.width
     this.y = Math.random() * this.game.height * 0.5
     this.image = document.getElementById("enemy_spider_big") as HTMLImageElement
     this.speedX = 0
     this.speedY = Math.random() > 0.5 ? 1 : -1
-    this.maxFrame = 5
+    this.maxFrame = 9
   }
 
   update(deltaTime: number) {
