@@ -36,8 +36,8 @@ export class Sitting extends State {
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 4
-    this.game.player.frameY = 5
+    this.game.player.maxFrame = 13
+    this.game.player.frameY = 8
   }
 
   handleInput(input: string[]) {
@@ -56,7 +56,7 @@ export class Running extends State {
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 8
+    this.game.player.maxFrame = 11
     this.game.player.frameY = 3
   }
 
@@ -88,7 +88,7 @@ export class Jumping extends State {
       this.game.player.vy -= 24
     }
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 6
+    this.game.player.maxFrame = 9
     this.game.player.frameY = 1
   }
 
@@ -110,7 +110,7 @@ export class Falling extends State {
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 6
+    this.game.player.maxFrame = 9
     this.game.player.frameY = 2
   }
 
@@ -130,8 +130,8 @@ export class Rolling extends State {
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 6
-    this.game.player.frameY = 6
+    this.game.player.maxFrame = 8
+    this.game.player.frameY = 7
   }
 
   handleInput(input: string[]) {
@@ -165,8 +165,8 @@ export class Diving extends State {
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 6
-    this.game.player.frameY = 6
+    this.game.player.maxFrame = 8
+    this.game.player.frameY = 7
     this.game.player.vy = 15
   }
 
@@ -200,20 +200,23 @@ export class Diving extends State {
 }
 
 export class Hit extends State {
+  maxFrame: number
+
   constructor(game: IGame) {
     super("HIT", game)
+    this.maxFrame = 7
   }
 
   enter() {
     this.game.player.frameX = 0
-    this.game.player.maxFrame = 10
+    this.game.player.maxFrame = this.maxFrame
     this.game.player.frameY = 4
   }
 
   handleInput(input: string[]) {
-    if (this.game.player.frameX >= 10 && this.game.player.onGround()) {
+    if (this.game.player.frameX >= this.maxFrame && this.game.player.onGround()) {
       this.game.player.setState(states.RUNNING, 1)
-    } else if (this.game.player.frameX >= 10 && !this.game.player.onGround()) {
+    } else if (this.game.player.frameX >= this.maxFrame && !this.game.player.onGround()) {
       this.game.player.setState(states.FALLING, 1)
     }
   }

@@ -39,7 +39,7 @@ export class UI {
 
     // lives
     for (let i = 0; i < this.game.lives; i++) {
-      ctx.drawImage(this.livesImage, 25 * i + 20, 95, 25, 25)
+      ctx.drawImage(this.livesImage, 30 * i + 20, 95, 25, 25)
     }
 
     // health bar
