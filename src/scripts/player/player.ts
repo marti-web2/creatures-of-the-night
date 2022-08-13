@@ -105,7 +105,10 @@ export default class Player {
     }
 
     // power bar
-    if (this.currentState === this.states[4] || this.currentState === this.states[5]) {
+    if (
+      this.currentState === this.states[4] ||
+      this.currentState === this.states[5]
+    ) {
       this.power -= 10 * deltaTime
       this.game.UI.powerBar.updateHealth(this.power)
       if (this.power <= 0) {
@@ -115,7 +118,9 @@ export default class Player {
     } else if (this.power < this.game.maxPower) {
       this.power += 10 * deltaTime
       this.game.UI.powerBar.updateHealth(this.power)
-      if (this.power >= this.game.maxPower) { this.powerDepleted = false }
+      if (this.power >= this.game.maxPower) {
+        this.powerDepleted = false
+      }
     }
 
     // sprite animation

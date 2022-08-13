@@ -124,8 +124,6 @@ export class Falling extends State {
 }
 
 export class Rolling extends State {
- 
-
   constructor(game: IGame) {
     super("ROLLING", game)
   }
@@ -191,7 +189,11 @@ export class Diving extends State {
           )
         )
       }
-    } else if (input.includes("c") && this.game.player.onGround() && !this.game.player.powerDepleted) {
+    } else if (
+      input.includes("c") &&
+      this.game.player.onGround() &&
+      !this.game.player.powerDepleted
+    ) {
       this.game.player.setState(states.ROLLING, 2)
     }
   }

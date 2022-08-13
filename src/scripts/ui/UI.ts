@@ -6,7 +6,7 @@ export class UI {
   fontSize: number
   fontFamily: string
   livesImage: HTMLImageElement
- 
+
   power: number
   powerBar: PowerBar
 
@@ -16,7 +16,7 @@ export class UI {
     this.fontFamily = "Creepster, serif"
     this.livesImage = document.getElementById("lives") as HTMLImageElement
     this.power = this.game.player.power
-   
+
     this.powerBar = new PowerBar(this.power)
   }
 

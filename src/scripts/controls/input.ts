@@ -20,7 +20,7 @@ export class InputHandler implements InputHandlerInterface {
     this.listenFor = ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft", "c"]
     window.addEventListener("keydown", (e) => {
       if (this.listenFor.includes(e.key) && this.keys.indexOf(e.key) === -1) {
-        if(!this.keyPressed) {
+        if (!this.keyPressed) {
           this.game.sounds.playMusic()
         }
         this.keyPressed = true
@@ -29,7 +29,7 @@ export class InputHandler implements InputHandlerInterface {
         this.game.debug = !this.game.debug
       } else if (e.key === "Enter" && this.game.gameOver) {
         this.game.start()
-      } else if(e.key === 'm'){
+      } else if (e.key === "m") {
         this.game.sounds.toggleMusic()
       }
     })
