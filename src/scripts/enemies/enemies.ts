@@ -79,13 +79,13 @@ export class FlyingEnemy extends Enemy {
   constructor(game: IGame) {
     super()
     this.game = game
-    this.width = 60
+    this.width = 53
     this.height = 44
     this.x = this.game.width + Math.random() * this.game.width * 0.5
     this.y = Math.random() * this.game.height * 0.5
     this.speedX = Math.random() + 1
     this.speedY = 0
-    this.maxFrame = 5
+    this.maxFrame = 1
     this.image = document.getElementById("enemy_fly") as HTMLImageElement
     this.angle = 0
     this.va = Math.random() * 0.1 + 0.1
@@ -102,14 +102,14 @@ export class GroundEnemy extends Enemy {
   constructor(game: IGame) {
     super()
     this.game = game
-    this.width = 60
+    this.width = 80
     this.height = 87
     this.x = this.game.width
     this.y = this.game.height - this.height - this.game.groundMargin
     this.image = document.getElementById("enemy_plant") as HTMLImageElement
     this.speedX = 0
     this.speedY = 0
-    this.maxFrame = 1
+    this.maxFrame = 17
   }
 
   update(deltaTime: number) {

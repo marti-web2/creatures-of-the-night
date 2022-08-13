@@ -12,7 +12,3 @@ dist
 screenshots
 .vscode
 *.code-workspace
-
-# archived images
-player-1.png
-lives-1.png
